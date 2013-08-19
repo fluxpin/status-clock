@@ -1,0 +1,17 @@
+A status bar clock for xmonad and other stand-alone window managers. It
+takes a time format string (see the man pages for strftime and date) as an
+argument and prints the time to standard output every minute.
+
+Output is synchronized with the turning of the minute rather than occurring
+strictly every sixty seconds.
+
+Note that the format string is not validated (it would be easier to safely
+reimplement strftime). Malicious or unusual input may result in undefined
+behavior.
+
+**Building**
+
+You probably need glibc to build this (see util.c for details).
+
+The program can be built (and installed) with the included Makefile. It
+supports DESTDIR/PREFIX installation.
