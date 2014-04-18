@@ -14,9 +14,15 @@ clock: $(OBJECTS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 
+%.d: %.c
+	$(CC) $(CFLAGS) -MM -MP $< -MF $@
+	sed -i 's/$(@:.d=.o)/$@ &/' $@
+
+-include $(OBJECTS:.o=.d)
+
 .PHONY: clean
 clean:
-	rm -f clock $(OBJECTS)
+	rm -f clock $(OBJECTS) $(OBJECTS:.o=.d)
 
 .PHONY: install
 install: all
