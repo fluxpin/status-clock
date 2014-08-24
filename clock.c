@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <unistd.h>
 
 #include "clock.h"
@@ -18,10 +17,8 @@ int main(int argc, char *argv[])
         struct str clock = {0, NULL};
 
         NAME = argc ? argv[0] : __FILE__;
-        if (argc != 2) {
-                fprintf(stderr, "Usage: %s <format>\n", NAME);
-                return 1;
-        }
+        if (argc != 2)
+                die("Usage: %s <format>\n");
 
         setvbuf(stdout, NULL, _IOLBF, 0);
         while (1) {

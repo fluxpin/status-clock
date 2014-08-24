@@ -1,6 +1,4 @@
 #include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 #include "clock.h"
 #include "util.h"
@@ -8,10 +6,8 @@
 static void *umalloc(size_t size)
 {
         void *ptr = malloc(size);
-        if (!ptr) {
-                fprintf(stderr, "%s: malloc failed\n", NAME);
-                exit(1);
-        }
+        if (!ptr)
+                die("%s: malloc failed\n");
         return ptr;
 }
 

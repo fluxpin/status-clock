@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -O2 -march=native
-CFLAGS += -Wall -Wextra -pedantic -std=c89
+CFLAGS += -Wall -Wextra -std=c99 # -pedantic
 CFLAGS += -Wpadded -Wwrite-strings
 OBJECTS = clock.o util.o
 PREFIX ?= /usr/local
